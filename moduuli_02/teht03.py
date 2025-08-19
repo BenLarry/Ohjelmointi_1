@@ -1,5 +1,5 @@
-base = int(input("Kirjota suorakulman kanta senttimetreinä: "))
-height = int(input("Kirjota suorakulman korkeus senttimetreinä: "))
+base = float(input("Kirjota suorakulman kanta senttimetreinä: "))
+height = float(input("Kirjota suorakulman korkeus senttimetreinä: "))
 
 border = 2 * (base + height)
 area = base * height
