@@ -9,7 +9,7 @@ connect = mysql.connector.connect(
 )
 
 def search_coutry_airports(iso_country):
-    sql = "SELECT type FROM airport WHERE iso_country = %s;"
+    sql = "SELECT type, count(*) AS count FROM airport WHERE iso_country = %s GROUP BY type"
     cursor = connect.cursor(dictionary=True)
     cursor.execute(sql, (iso_country,))
     result = cursor.fetchall()
@@ -17,20 +17,8 @@ def search_coutry_airports(iso_country):
 
 
 def main():
-    airport_types = {}
     iso_code = input("Kirjoita maan iso-koodi esim. (FI): ")
     airports = search_coutry_airports(iso_code)
-    if airports is None:
-        print(f"maassa iso koodilla {iso_code} ei ole lentoasemia")
-        return
-    
     for airport in airports:
-        airport_type = airport['type']
-        if airport_type in airport_types:
-            airport_types[airport_type] += 1
-        else:
-            airport_types[airport_type] = 1
-        
-    for type in airport_types:
-        print(f"Lentoasema tyyppi: {type} on {airport_types[type]} kappaletta")
+        print(f"{airport['type']} on {airport['count']} kappaletta")
 main()
