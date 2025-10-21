@@ -7,8 +7,11 @@ class Talo():
         self.elevators = []
         for i in range(elevator_amount):
             self.elevators.append(Hissi(lowest_floor, highest_floor))
-        print(self.elevators)
 
     def use_elevator(self, elevator_number, floor):
         elevator = self.elevators[elevator_number-1]
         elevator.move_to_floor(floor)
+
+    def fire_alarm(self):
+        for elevator in self.elevators:
+            elevator.move_to_floor(self.lowest_floor)
