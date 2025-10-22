@@ -6,13 +6,15 @@ class Hissi():
 
     def move_to_floor(self, floor):
         while(self.floor > floor):
-            self.move_down()
+            print(self.move_down())
 
         while(self.floor < floor):
-            self.move_up()
+            print(self.move_up())
 
     def move_down(self):
         self.floor -= 1
+        return f"Floor: {self.floor}"
 
     def move_up(self):
         self.floor += 1
+        return f"Floor: {self.floor}"
