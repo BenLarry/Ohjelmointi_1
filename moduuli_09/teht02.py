@@ -1,12 +1,4 @@
-class Auto():
-    def __init__(self, registration_number, top_speed):
-        self.registration_number = registration_number
-        self.top_speed = top_speed
-        self.current_speed = 0
-        self.travel_distance = 0
-
-    def accelerate(self, speed):
-        self.current_speed += speed
+from classes.auto import Auto
 
 def main():
     car = Auto("ABC-123", 142)
@@ -14,9 +6,8 @@ def main():
 
     
     car.accelerate(30)
-    car.accelerate(70)
-    car.accelerate(50)
-    car.accelerate(-200)
+    car.accelerate(-30)
+    car.accelerate(-25)
     print(car.current_speed)
 
 main()
