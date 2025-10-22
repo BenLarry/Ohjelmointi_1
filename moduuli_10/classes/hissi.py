@@ -2,7 +2,7 @@ class Hissi():
     def __init__(self, lowest_floor, highest_floor):
         self.lowest_floor = lowest_floor
         self.highest_floor = highest_floor
-        self.floor = self.lowest_floor
+        self.floor = lowest_floor
 
     def move_to_floor(self, floor):
         while(self.floor > floor):
