@@ -1,3 +1,4 @@
 *.code-workspace
 tuntitehtavat/
 db/
+__pycache__
